@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @package Underpin\Abstracts
  */
-abstract class Rest_Endpoint {
+abstract class Rest_Endpoint extends \WP_REST_Controller {
 	use Feature_Extension;
 
 	/**
