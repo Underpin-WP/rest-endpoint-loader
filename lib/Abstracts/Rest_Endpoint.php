@@ -6,11 +6,12 @@
  * @package Underpin\Abstracts
  */
 
-namespace Underpin_Rest_Endpoints\Abstracts;
+namespace Underpin\Rest_Endpoints\Abstracts;
 
+use Underpin\Loaders\Logger;
 use Underpin\Traits\Feature_Extension;
 use WP_REST_Request;
-use function Underpin\underpin;
+
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -23,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @package Underpin\Abstracts
  */
-abstract class Rest_Endpoint {
+abstract class Rest_Endpoint extends \WP_REST_Controller {
 	use Feature_Extension;
 
 	/**
@@ -85,14 +86,14 @@ abstract class Rest_Endpoint {
 		$registered = register_rest_route( $this->rest_namespace, $this->route, $this->args );
 
 		if ( false === $registered ) {
-			underpin()->logger()->log(
+			Logger::log(
 				'error',
 				'rest_route_was_not_registered',
 				'The rest route ' . $this->route . ' was not registered. There is probably a __doing_it_wrong notice explaining this further.',
 				[ 'route' => $this->route, 'namespace' => $this->rest_namespace, 'args' => $this->args ]
 			);
 		} else {
-			underpin()->logger()->log(
+			Logger::log(
 				'notice',
 				'rest_route_registered',
 				'The rest route ' . $this->route . ' was registered successfully',
