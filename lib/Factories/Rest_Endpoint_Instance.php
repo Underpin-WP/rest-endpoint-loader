@@ -1,10 +1,10 @@
 <?php
 
-namespace Underpin_Rest_Endpoints\Factories;
+namespace Underpin\Rest_Endpoints\Factories;
 
 
 use Underpin\Traits\Instance_Setter;
-use Underpin_Rest_Endpoints\Abstracts\Rest_Endpoint;
+use Underpin\Rest_Endpoints\Abstracts\Rest_Endpoint;
 use WP_REST_Request;
 
 if ( ! defined( 'ABSPATH' ) ) {
