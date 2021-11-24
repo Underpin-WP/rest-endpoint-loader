@@ -8,6 +8,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Add this loader.
 Underpin::attach( 'setup', new \Underpin\Factories\Observers\Loader( 'rest_endpoints', [
-	'instance' => 'Underpin\Rest_Endpoints\Abstracts\Rest_Endpoint',
-	'default'  => 'Underpin\Rest_Endpoints\Factories\Rest_Endpoint_Instance',
+	'abstraction_class' => 'Underpin\Rest_Endpoints\Abstracts\Rest_Endpoint',
+	'default_factory'  => 'Underpin\Rest_Endpoints\Factories\Rest_Endpoint_Instance',
 ] ) );
